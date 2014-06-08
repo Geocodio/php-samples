@@ -16,7 +16,7 @@ require('config.php');
 $coordinate = '33.738987255507, -116.40833849559';
 
 // Construct URL
-$url = 'http://api.geocod.io/v1/reverse?q=' . urlencode($coordinate) . '&api_key=' . urlencode(API_KEY);
+$url = 'https://api.geocod.io/v1/reverse?q=' . urlencode($coordinate) . '&api_key=' . urlencode(API_KEY);
 
 // Perform request and parse the JSON output
 $response = json_decode(file_get_contents($url));

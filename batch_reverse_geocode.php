@@ -13,7 +13,7 @@
 require('config.php');
 
 // Construct URL
-$url = 'http://api.geocod.io/v1/reverse?api_key=' . urlencode(API_KEY);
+$url = 'https://api.geocod.io/v1/reverse?api_key=' . urlencode(API_KEY);
 
 // Define coordinates to geocode
 $coordinates = array(

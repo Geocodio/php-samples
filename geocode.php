@@ -16,7 +16,7 @@ require('config.php');
 $address = '42370 Bob Hope Drive, Rancho Mirage CA';
 
 // Construct URL
-$url = 'http://api.geocod.io/v1/geocode?q=' . urlencode($address) . '&api_key=' . urlencode(API_KEY);
+$url = 'https://api.geocod.io/v1/geocode?q=' . urlencode($address) . '&api_key=' . urlencode(API_KEY);
 
 // Perform request and parse the JSON output
 $response = json_decode(file_get_contents($url));
