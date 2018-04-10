@@ -4,7 +4,7 @@
  * This example shows you how to geocode up to 10,000 addresses at once using the
  * batch geocoding endpoint.
  * 
- * POST /v1/geocode
+ * POST /v1.3/geocode
  *
  * Note:
  * Remember to set your API Key in config.php
@@ -13,16 +13,16 @@
 require('config.php');
 
 // Construct URL
-$url = 'https://api.geocod.io/v1/geocode?api_key=' . urlencode(API_KEY);
+$url = 'https://api.geocod.io/v1.3/geocode?api_key=' . urlencode(API_KEY);
 
 // Define addresses to geocode
-$addresses = array(
+$addresses = [
 	'42370 Bob Hope Drive, Rancho Mirage CA',
 	'1290 Northbrook Court Mall, Northbrook IL',
 	'4410 S Highway 17 92, Casselberry FL',
 	'15000 NE 24th Street, Redmond WA',
 	'17015 Walnut Grove Drive, Morgan Hill CA'
-);
+];
 
 // Encode addresses into JSON
 $json = json_encode($addresses);
@@ -38,14 +38,19 @@ curl_setopt($ch, CURLOPT_TIMEOUT, 60 * 10);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');                                                                     
 curl_setopt($ch, CURLOPT_POSTFIELDS, $json);                                                                  
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'Content-Type: application/json',                                                                                
-    'Content-Length: ' . strlen($json))                                                                       
-);
+    'Content-Length: ' . strlen($json)
+]);
 
 // Get response and decode the JSON
 $response = json_decode(curl_exec($ch));
 curl_close($ch);
+
+if (!isset($response->results)) {
+	echo 'Error!';
+	var_dump($response);
+}
 
 // Output decoded json
 foreach ($response->results as $result) {
