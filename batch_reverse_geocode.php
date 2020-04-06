@@ -4,7 +4,7 @@
  * This example shows you how to reverse geocode up to 10,000 coordinates at once using the
  * batch reverse geocoding endpoint.
  * 
- * POST /v1.3/reverse
+ * POST /v1.4/reverse
  *
  * Note:
  * Remember to set your API Key in config.php
@@ -13,7 +13,7 @@
 require('config.php');
 
 // Construct URL
-$url = 'https://api.geocod.io/v1.3/reverse?api_key=' . urlencode(API_KEY);
+$url = 'https://api.geocod.io/v1.4/reverse?api_key=' . urlencode(API_KEY);
 
 // Define coordinates to geocode
 $coordinates = [
