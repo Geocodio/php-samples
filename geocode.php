@@ -4,7 +4,7 @@
  * This example shows you how to geocode a single address using the
  * following endpoint:
  * 
- * GET /v1.4/geocode
+ * GET /v1.7/geocode
  *
  * Note:
  * Remember to set your API Key in config.php
@@ -16,7 +16,7 @@ require('config.php');
 $address = '42370 Bob Hope Drive, Rancho Mirage CA';
 
 // Construct URL
-$url = 'https://api.geocod.io/v1.4/geocode?q=' . urlencode($address) . '&api_key=' . urlencode(API_KEY);
+$url = 'https://api.geocod.io/v1.7/geocode?q=' . urlencode($address) . '&api_key=' . urlencode(API_KEY);
 
 // Perform request and parse the JSON output
 $response = json_decode(file_get_contents($url));

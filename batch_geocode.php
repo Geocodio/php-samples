@@ -4,7 +4,7 @@
  * This example shows you how to geocode up to 10,000 addresses at once using the
  * batch geocoding endpoint.
  * 
- * POST /v1.4/geocode
+ * POST /v1.7/geocode
  *
  * Note:
  * Remember to set your API Key in config.php
@@ -13,7 +13,7 @@
 require('config.php');
 
 // Construct URL
-$url = 'https://api.geocod.io/v1.4/geocode?api_key=' . urlencode(API_KEY);
+$url = 'https://api.geocod.io/v1.7/geocode?api_key=' . urlencode(API_KEY);
 
 // Define addresses to geocode
 $addresses = [
@@ -37,7 +37,7 @@ curl_setopt($ch, CURLOPT_TIMEOUT, 60 * 10);
 // General CURL options
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');                                                                     
 curl_setopt($ch, CURLOPT_POSTFIELDS, $json);                                                                  
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     'Content-Type: application/json',                                                                                
     'Content-Length: ' . strlen($json)

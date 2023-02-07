@@ -4,7 +4,7 @@
  * This example shows you how to geocode a single coordinate using the
  * following endpoint:
  * 
- * GET /v1.4/reverse
+ * GET /v1.7/reverse
  *
  * Note:
  * Remember to set your API Key in config.php
@@ -16,7 +16,7 @@ require('config.php');
 $coordinate = '33.738987255507, -116.40833849559';
 
 // Construct URL
-$url = 'https://api.geocod.io/v1.4/reverse?q=' . urlencode($coordinate) . '&api_key=' . urlencode(API_KEY);
+$url = 'https://api.geocod.io/v1.7/reverse?q=' . urlencode($coordinate) . '&api_key=' . urlencode(API_KEY);
 
 // Perform request and parse the JSON output
 $response = json_decode(file_get_contents($url));
